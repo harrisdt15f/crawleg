@@ -25,7 +25,7 @@ exports.cp=[
 		title:'北京PK10',
 		source:'北京福彩网',
 		name:'bjpk10',
-		enable:false,
+		enable:true,
 		timer:'bjpk10',
 		option:{
 			host:"www.bwlc.net",
@@ -194,6 +194,7 @@ function getFrom360CP(str, type){
 			}).join(',');
 			//console.log(data);
 			data.correct=true; // 20160921 告知不用處理
+			log('获取得到的结果是'+JSON.stringify(data));
 			return data;
 		}catch(err){
 			throw('解析数据失败');

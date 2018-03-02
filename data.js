@@ -16,7 +16,8 @@ process.on('uncaughtException', function(e){
 // 自动重启
 if(config.restartTime){
 	setTimeout(function(){
-		exit();
+		log('采集器自动重启');
+        return;
 	}, config.restartTime * 1000);
 }
 var timers={};		// 任务记时器列表
@@ -71,6 +72,7 @@ function getPlayedFun(cb){
 
 function runTask(){
 	if(config.cp.length) config.cp.forEach(function(conf){
+		log('config 是'+JSON.stringify(conf));
 		timers[conf.name]={};
 		timers[conf.name][conf.timer]={timer:null, option:conf};
 		try{
